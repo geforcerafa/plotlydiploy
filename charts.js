@@ -23,6 +23,141 @@ function init() {
 // Initialize the dashboard
 init();
 
+////////////////////////////////////
+
+function init2() {
+  var data= d3.select("#bubble2");
+  data = [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] 
+  }];
+  Plotly.newPlot("#bubble2", data);
+};
+
+init2();
+
+function init2() {
+  data = [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] 
+  }];
+  // Plotly.newPlot("plot2", data);
+
+
+
+var trace = { 
+  x: [0.5, 1, 3, 4.5, 5, 8, 9.5, 9.8, 10, 15],
+  y:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  type: 'bar',
+  orientation: 'h'
+  };
+
+  var barData = [trace];
+
+  // 9. Create the layout for the bar chart. 
+  var barLayout = {
+    title: " Top 10 Bacterial Cultures Found"
+  };
+   
+    
+  // 10. Use Plotly to plot the data with the layout. 
+  
+          Plotly.newPlot("bar", barData, barLayout);
+
+};
+
+var gaugeData = [
+  {
+   type: "indicator",
+   mode: "gauge+number",
+   value: 2,
+   title: { text: "Scrubs per Week", font: { size: 24 } },
+   gauge: {
+     axis: { range: [null, 10], tickwidth: 1, tickcolor: "black" },
+     bar: { color: "black" },
+     bgcolor: "white",
+     borderwidth: 2,
+     bordercolor: "black",
+     steps: [
+       { range: [0, 2], color: "red" },
+       { range: [2, 4], color: "orange" },
+       { range: [4, 6], color: "yellow" },
+       { range: [6, 8], color: "limegreen" },
+       { range: [8, 10], color: "darkgreen" }
+     ],
+   }       
+  }
+ ];
+ 
+ // 5. Create the layout for the gauge chart.
+ var gaugeLayout = { 
+  
+
+     title: 'Belly Botton Washing Frequency',
+     showlegend: false,
+
+ };
+
+ // 6. Use Plotly to plot the gauge data and layout.
+ 
+ Plotly.newPlot("gauge", gaugeData, gaugeLayout );
+
+init2();       
+
+function init4(){
+var trace1 = {
+  x: [1, 1,2, 1.5, 2, 2.5, 3, 3.5, 4],
+  y: [10, 11, 10, 11, 11, , 12, 13, 14],
+  mode: 'markers',
+  marker: {
+    color: ['rgb(93, 164, 214)', 'rgb(93, 164, 214)', 'rgb(255, 144, 14)', 'rgb(255, 144, 14)',
+      'rgb(44, 160, 101)', 'rgb(44, 160, 101)', 'rgb(255, 65, 54)', 'rgb(255, 65, 54)'],
+    size: [40,20, 60, 80, 100, 200, 80, 150]
+  }
+};
+var data = [trace1];
+
+var layout = {
+  title: 'Bacteria Cultures Per Sample',
+  showlegend: false,
+  xaxis: {title: "OTU ID"}
+  };
+
+
+Plotly.newPlot("bubble", data, layout);
+};
+init4();
+
+function init3() {
+
+   var traceBubble = {
+      x: [1, 2, 3, 4, 5],
+      y:[1, 2, 4, 8, 16],
+      text: [1],
+      mode: 'markers',
+      marker: {
+        color: [red],
+         
+      }   
+    };
+     
+      var bubbleData = [traceBubble
+      ];
+
+      // 2. Create the layout for the bubble chart.
+      var bubbleLayout = {
+
+          title: 'Bacteria Cultures Per Sample',
+          showlegend: false,
+          xaxis: {title: "OTU ID"}
+        }; 
+
+      // 3. Use Plotly to plot the data with the layout.
+      Plotly.newPlot("bubble", bubbleData, bubbleLayout);          
+    };
+      init3(); 
+
+/////////////////////////////////////////////////7
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
