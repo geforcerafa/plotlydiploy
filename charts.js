@@ -323,4 +323,4 @@ var metadata = data.metadata;
     Plotly.newPlot("gauge", gaugeData, gaugeLayout );
 
   });   
-}
+ }
